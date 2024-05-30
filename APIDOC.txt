@@ -1,0 +1,137 @@
+기본 URL
+
+http://localhost:3000
+
+
+//회원가입//
+
+1.Endpoint
+
+POST /auth/register
+
+2. 요청헤더
+
+Content-Type: application/json
+
+3. 요청바디
+
+{
+    "name": "John Doe",
+    "username": "johndoe",
+    "email": "john@example.com",
+    "password": "password123",
+    "confirmPassword": "password123"
+}
+
+4. 응답예제
+
+{
+    "message": "User registered, please check your email to verify your account"
+}
+
+
+//로그인//
+
+1. Endpoint
+
+POST /auth/login
+
+
+2. 요청헤더
+
+Content-Type: application/json
+
+3. 응답예제
+
+{
+    "token": "your_jwt_token"
+}
+
+
+//이메일인증//
+
+1. Endpoint
+
+GET /verify/email
+
+2. 요청예재
+
+http://localhost:3000/verify/email?token=your_verification_token
+
+3. 응답예제
+
+{
+    "message": "Email verified successfully"
+}
+
+//유저 정보 가져오기 //
+
+1. Endpoint
+
+GET /exe/user/:id
+
+
+2. 요청예제
+
+http://localhost:3000/exe/user/1
+
+
+3. 응답예제
+
+{
+    "id": 1,
+    "name": "John Doe",
+    "username": "johndoe",
+    "email": "john@example.com",
+    "email_verified": true
+}
+
+
+//프로그램 추가//
+
+1. Endpoint
+
+POST /exe/program
+
+
+2. 요청헤더
+
+Content-Type: application/json
+
+
+3. 요청바디
+
+{
+    "userId": 1,
+    "programName": "Example Program",
+    "expirationDate": "2024-12-31"
+}
+
+
+4. 응답예제
+
+{
+    "message": "Program added successfully"
+}
+
+
+//사용자 프로그램 목록 가져오기//
+
+1. Endpoint
+
+GET /exe/programs/:userId
+
+2. 요청예제
+
+http://localhost:3000/exe/programs/1
+
+3. 응답예제
+
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "program_name": "Example Program",
+        "expiration_date": "2024-12-31"
+    }
+]
