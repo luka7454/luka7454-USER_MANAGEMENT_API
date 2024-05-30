@@ -1,6 +1,8 @@
 const express = require('express');
 const authRoutes = require('./routes/auth');
 const verifyRoutes = require('./routes/verify');
+const exeRoutes = require('./routes/exe');
+
 
 const app = express();
 app.use(express.json());
